@@ -1,36 +1,36 @@
 const data = [
   {
     title: "Free vibration of cantilever beam",
-    path: "",
+    path: "FreeVibrationCantileverBeam",
   },
   {
     title: "Free vibration of simply supported beam",
-    path: "",
+    path: "exp-simply-supported-beam-nitk",
   },
   {
     title: "Free vibration of fixed beam",
-    path: "",
+    path: "exp-fixed-beam-nitk",
   },
   {
     title: "Forced vibration of SDOF system",
-    path: "exp-sdof-system-nitk",
+    path: "exp_sdof_system_nitk",
   },
-  {
-    title: "Base Excitation",
-    path: "",
-  },
-  {
-    title: "Rotating Unbalance",
-    path: "exp-rotating-unbalance-nitk",
-  },
-  {
-    title: "2DOF Forced vibration",
-    path: "",
-  },
-  {
-    title: "Dynamic Vibration Absorber",
-    path: "exp-dynamic-vibration-absorber-nitk",
-  },
+  // {
+  //   title: "Base Excitation",
+  //   path: "",
+  // },
+  // {
+  //   title: "Rotating Unbalance",
+  //   path: "exp-rotating-unbalance-nitk",
+  // },
+  // {
+  //   title: "2DOF Forced vibration",
+  //   path: "",
+  // },
+  // {
+  //   title: "Dynamic Vibration Absorber",
+  //   path: "exp-dynamic-vibration-absorber-nitk",
+  // },
 ];
 
 const filterInput = function (val) {
