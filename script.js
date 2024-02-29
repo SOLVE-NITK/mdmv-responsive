@@ -15,18 +15,18 @@ const data = [
     title: "Forced vibration of SDOF system",
     path: "exp_sdof_system_nitk",
   },
-  // {
-  //   title: "Base Excitation",
-  //   path: "",
-  // },
+  {
+    title: "Base Excitation",
+    path: "exp_base_excitation_nitk",
+  },
   // {
   //   title: "Rotating Unbalance",
   //   path: "exp-rotating-unbalance-nitk",
   // },
-  // {
-  //   title: "2DOF Forced vibration",
-  //   path: "",
-  // },
+  {
+    title: "2DOF Forced vibration",
+    path: "exp-forced-vibration-nitk",
+  },
   // {
   //   title: "Dynamic Vibration Absorber",
   //   path: "exp-dynamic-vibration-absorber-nitk",
