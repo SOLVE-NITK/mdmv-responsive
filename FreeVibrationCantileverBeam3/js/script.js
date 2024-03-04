@@ -1,131 +1,49 @@
-// Experiment parameters
-const beamInfo = [
-  {
-    ISMB: 100,
-    h: "100 mm",
-    b: "75mm",
-    t1: "4mm",
-    t2: "7mm",
-    Ixx: "257.5 cm<sup>4</sup>",
-    Iyy: "40.8 cm<sup>4</sup>",
-    Area: "14.6 cm<sup>2</sup>",
-    A: 14.6e-4,
-    I: 257.5e-8,
-    path: "images/crossI.PNG",
-  },
-  {
-    ISNT: 150,
-    h: "150 mm",
-    b: "150mm",
-    t1: "10mm",
-    t2: "10 mm",
-    Ixx: "541.1 cm<sup>4</sup>",
-    Iyy: "250.3 cm<sup>4</sup>",
-    Area: "28.88 cm<sup>2</sup>",
-    A: 28.88e-4,
-    I: 541.1e-8,
-    path: "images/crossT.PNG",
-  },
-  {
-    ISMC: 100,
-    h: "100 mm",
-    b: "50mm",
-    t1: "4.7mm",
-    t2: "7.5 mm",
-    Ixx: "186.7 cm<sup>4</sup>",
-    Iyy: "25.9 cm<sup>4</sup>",
-    Area: "11.7 cm<sup>2</sup>",
-    A: 11.7e-4,
-    I: 186.7e-8,
-    path: "images/crossC.PNG",
-  },
-  {
-    ISA: 100100,
-    h: "100 mm",
-    b: "100mm",
-    t: "12mm",
-    Ixx: "207 cm<sup>4</sup>",
-    Iyy: "207 cm<sup>4</sup>",
-    Area: "22.59 cm<sup>2</sup>",
-    A: 22.59e-4,
-    I: 207e-8,
-    path: "images/crossL.PNG",
-  },
-  {
-    SQUARE: "",
-    h: "150 mm",
-    b: "150mm",
-    Ixx: "4218.75 cm<sup>4</sup>",
-    Iyy: "4218.75 cm<sup>4</sup>",
-    Area: "225 cm<sup>2</sup>",
-    A: 225e-4,
-    I: 4218.75e-8,
-    path: "images/crossSqr.PNG",
-  },
-  {
-    CIRCLE: "",
-    D: "150 mm",
-    Ixx: "2485.05  cm<sup>4</sup>",
-    Iyy: "2485.05  cm<sup>4</sup>",
-    Area: "176.72 cm<sup>2</sup>",
-    A: 176.72e-4,
-    I: 2485.05e-8,
-    path: "images/crossCirc.PNG",
-  },
-  {
-    A: 0.01,
-    I: 0.01,
-  },
+
+var beaminf=[
+  "ISMB 100\n h=100 mm,b=75 mm\n t1=4 mm,t2=7 mm\nIxx=257.5 cm^4\nIyy=40.8 cm^4\nA=14.6 cm^2",
+  "ISNT 150\n h=150 mm,b=150 mm\n t1=10 mm,t2=10 mm\nIxx=541.1 cm^4\nIyy=250.3 cm^4\nA=28.88 cm^2",
+  "ISMC 100\n h=100 mm,b=50 mm\n t1=4.7 mm,t2=7.5 mm\nIxx=186.7 cm^4\nIyy=25.9 cm^4\nA=11.7 cm^2",
+  "ISA 100100\n h=100 mm,b=100 mm\n t=12 mm\nIxx=207 cm^4\nIyy=207 cm^4\nA=22.59 cm^2",
+  "SQUARE\n h=150 mm,b=150 mm\n Ixx=4218.75 cm^4\nIyy=4218.75 cm^4\nA=225 cm^2",
+  "CIRCLE\n D=150 mm\n Ixx=2485.05 cm^4\nIyy=2485.05 cm^4\nA=176.72 cm^2"
 ];
 
-// material Info
-const matInfo = [
-  {
-    E: 200e9,
-    rho: 7750,
-  },
-  {
-    E: 70.33e9,
-    rho: 2712,
-  },
-  {
-    E: 111.006e9,
-    rho: 8304,
-  },
-];
 
 // simulation variables
-var time = 0; //keeps track of the time of the animation
-var beamlength = 1500; //Length of the beam inmm
-var simTimeId; //for animation function
-var pauseTime; //for running animation when simulation is paused
-var rho = 7750; //Density in kg/m^3
-var A = 14.6e-4; //Area in m^2
-var massbeam = (rho * A * beamlength) / 1000; //Mass of the beam=volume * density
+let time = 0; //keeps track of the time of the animation
+let beamlength = 1500; //Length of the beam inmm
+let simTimeId; //for animation function
+let pauseTime; //for running animation when simulation is paused
+let rho = 7750; //Density in kg/m^3
+let A = 14.6E-4; //Area in m^2
+var massbeam=33/140*rho*A*beamlength/1000; //Mass of the beam=volume * density
+let E = 200E9; //Young's Modulus
+let I = 4.08E-7; //Ixx value
+let dampingratio = 0;
+let endmass = 25;
+let m = (33 / 140) * massbeam + endmass;
+let k = (3 * E * I) / Math.pow(beamlength / 1000, 3); //Stiffness value for a cantilever beam
+let wn = Math.sqrt(k / m); //Natural Frequency
+console.log(wn);
+let wd = wn * Math.sqrt(1 - dampingratio * dampingratio); //Damped natural frequency
+let initdisp = 500; //Initial displacement given to the beam
+let simstatus;
+let offsetX = 20;
 
-var E = 200e9; //Young's Modulus
-var I= 257.5e-8; //Ixx value
-var dampingratio = 0;
-var endmass = 5;
-var m = (33 / 140) * massbeam + endmass;
-// console.log(m);
-var k = (3 * E * I) / Math.pow(beamlength / 1000, 3); //Stiffness value for a cantilever beam
-// console.log(k);
-var wn = Math.sqrt(k / m); //Natural Frequency
-// console.log(wn);
-var wd = wn * Math.sqrt(1 - dampingratio * dampingratio); //Damped natural frequency
-var initdisp = 500; //Initial displacement given to the beam
-var simstatus;
-
+// var questionstate = 1;
+var secname = "I section";
+var matname =  "Steel";
 // canvas variables
 // graphics
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
+const tooltip = document.getElementById('tooltip');
+
 
 // graph1
 const graphCanvas1 = document.querySelector("#graphscreen1");
 const graphctx1 = graphCanvas1.getContext("2d");
-
+const coordinatesElement = document.getElementById('coordinates');
 //  graph2
 const graphCanvas2 = document.querySelector("#graphscreen2");
 const graphctx2 = graphCanvas2.getContext("2d");
@@ -142,11 +60,16 @@ let scaleY = 0.5;
 const sectionImg = document.querySelector(".cross-img img");
 const sectionTooltip = document.querySelector(".sec-tooltip");
 const cirTooltip = document.querySelector(".cir-tooltip");
+const cirTooltip1 = document.querySelector(".cir-tooltip1");
 const materials = document.querySelector("#materials");
 const sections = document.querySelector("#sections");
 const otherSec = document.querySelector(".other-sec");
 
+
+
 //Function to calculate the displacement
+
+
 const actdisplace = function (t) {
   let value =
     Math.exp(-dampingratio * wn * t) *
@@ -154,12 +77,14 @@ const actdisplace = function (t) {
       (dampingratio * wn * initdisp * Math.sin(wd * t)) / wd);
   return value;
 };
+var disptime = 0;
+var dispdisp = actdisplace(disptime);
+var xaxis;
+console.log(dispdisp);
 
 //start of simulation here; starts the timer with increments of 0.01 seconds
 function startsim() {
-  simTimeId=setInterval("time=time+0.01; varupdate(); ",'100');
-  // pauseTime = setInterval("varupdate();", "100");
-  // simstatus = 1;
+  simTimeId = setInterval("varupdate();time+=.01;", 10);
 }
 // switches state of simulation between 0:Playing & 1:Paused
 function simstate() {
@@ -188,134 +113,62 @@ function simstate() {
   }
 }
 
+
 //Initialise system parameters here
 function varinit() {
+  endmass = 25;//Updating variables
+  beamlength = 1500;
+  dampingratio =0.05;
   varchange();
-  //Variable slider and number input types
-  $("#massSlider").slider("value", 25); // slider initialisation : jQuery widget
-  $("#massSpinner").spinner("value", 25); // number initialisation : jQuery widget
-  $("#lengthSlider").slider("value", 1500);
-  $("#lengthSpinner").spinner("value", 1500);
-  $("#dampSlider").slider("value", 0.05);
-  $("#dampSpinner").spinner("value", 0.05);
-  $("#CsArea").spinner("value", 0.01);
-  $("#Ivalue").spinner("value", 0.01);
+
+  $( "#slidergraph" ).draggable({axis: "x",
+  containment: "#constraintbox",
+  drag:function(){printcordinates($("#slidergraph").position().left);},
+  });
+  
+ console.log(disptime);
+ console.log(dispdisp);
+
+ 
 }
 function varchange() {
-  $("#massSlider").slider({ max: 200, min: 0, step: 0.5 });
-  $("#massSpinner").spinner({ max: 200, min: 0, step: 0.5 });
+  varupdate();
 
-  $("#massSlider").on("slide", function (e, ui) {
-    $("#massSpinner").spinner("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#massSpinner").on("spin", function (e, ui) {
-    $("#massSlider").slider("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#massSpinner").on("change", function () {
-    varchange();
-  });
-
-  $("#lengthSlider").slider({ max: 3000, min: 1000, step: 10 });
-  $("#lengthSpinner").spinner({ max: 3000, min: 1000, step: 10 });
-
-  $("#lengthSlider").on("slide", function (e, ui) {
-    $("#lengthSpinner").spinner("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#lengthSpinner").on("spin", function (e, ui) {
-    $("#lengthSlider").slider("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#lengthSpinner").on("change", function () {
-    varchange();
-  });
-  $("#lengthSpinner").on("touch-start", function () {
-    varchange();
-  });
-
-  $("#dampSlider").slider({ max: 0.99, min: 0, step: 0.01 });
-  $("#dampSpinner").spinner({ max: 0.99, min: 0, step: 0.01 });
-
-  $("#dampSlider").on("slide", function (e, ui) {
-    $("#dampSpinner").spinner("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#dampSpinner").on("spin", function (e, ui) {
-    $("#dampSlider").slider("value", ui.value);
-    time = 0;
-    varupdate();
-  });
-  $("#dampSpinner").on("change", function () {
-    varchange();
-  });
-  $("#CsArea").spinner({ max: 1, min: 0.01, step: 0.0001 });
-  $("#Ivalue").spinner({ max: 1, min: 0.01, step: 0.0001 });
 }
 function varupdate() {
-  $("#massSpinner").spinner("value", $("#massSlider").slider("value")); //updating slider location with change in spinner(debug)
-  $("#lengthSpinner").spinner("value", $("#lengthSlider").slider("value"));
-  $("#dampSpinner").spinner("value", $("#dampSlider").slider("value"));
-  endmass = $("#massSpinner").spinner("value"); //Updating variables
-  beamlength = $("#lengthSpinner").spinner("value");
-  dampingratio = $("#dampSpinner").spinner("value");
+
+
   massbeam = (rho * A * beamlength) / 1000;
   m = (33 / 140) * massbeam + endmass;
-  // console.log(massbeam);
-  // console.log(beamlength);
-  console.log("I="+ I);
-  // console.log("beam"+ beamlength);
   k = (3 * E * I) / Math.pow(beamlength / 1000, 3);
-  // console.log(k);
   wn = Math.sqrt(k / m);
   let cc = 2 * Math.sqrt(k * m);
   let c = dampingratio * cc;
   wd = wn * Math.sqrt(1 - dampingratio * dampingratio);
-  document.querySelector("#mass").innerHTML = m.toFixed(4) + "kg"; //Displaying values
-  document.querySelector("#k").innerHTML = (k / 1000).toFixed(4) + "N/mm";
-  document.querySelector("#c").innerHTML = c.toFixed(4) + "Ns/m";
-  document.querySelector("#wd").innerHTML = wd.toFixed(4) + "rad/s";
-  document.querySelector("#wn").innerHTML = wn.toFixed(4) + "rad/s";
+
+  
+  document.getElementById("matname").innerHTML = matname;
+  document.getElementById("secname").innerHTML = secname;
+  document.getElementById("lengthtxt").innerHTML = beamlength;
 
   cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg  c = ${c.toFixed(
     4
   )}Ns/m \n k = ${(k / 1000).toFixed(4)}N/mm
   `;
+  cirTooltip1.innerHTML = 'Note: Hover on the graph to display the Displacement and Time';
+ 
   //If simulation is running
   if (!simstatus) {
     //Disabling the slider,spinner and drop down menu
-    $("#massSpinner").spinner("disable");
-    $("#massSlider").slider("disable");
-    $("#lengthSpinner").spinner("disable");
-    $("#lengthSlider").slider("disable");
-    $("#dampSpinner").spinner("disable");
-    $("#dampSlider").slider("disable");
-    $("#CsArea").spinner("enable");
-    $("#Ivalue").spinner("enable");
-    document.getElementById("sections").disabled = true;
-    document.getElementById("materials").disabled = true;
+
   }
   //If simulation is stopped
   if (simstatus) {
     //Enabling the slider,spinner and drop down menu
-    $("#massSpinner").spinner("enable");
-    $("#massSlider").slider("enable");
-    $("#lengthSpinner").spinner("enable");
-    $("#lengthSlider").slider("enable");
-    $("#dampSpinner").spinner("enable");
-    $("#dampSlider").slider("enable");
-    $("#CsArea").spinner("enable");
-    $("#Ivalue").spinner("enable");
-    document.getElementById("sections").disabled = false;
-    document.getElementById("materials").disabled = false;
+
   }
   draw();
+  generateGraph();
 }
 
 const setMediaQueries = function (ctx) {
@@ -401,13 +254,19 @@ const draw = function () {
   ball.draw();
   generateGraph();
 };
+const img = new Image();
 
-function generateGraph() {
-  // Graph 1
+// Set the source of the image
+img.src = '/images/slidergraph.PNG';  
+function generateGraph( x, y) {
+ 
+
   let graph1X = setMediaQueries(graphctx1);
   graphctx1.canvas.width = document.documentElement.clientWidth * scaleX;
   graphctx1.canvas.height = document.documentElement.clientHeight * scaleY;
   graphctx1.clearRect(0, 0, graphCanvas1.width, graphCanvas1.height);
+
+
   graphctx1.font = "2rem Comic sans MS";
   graphctx1.save();
   graphctx1.translate(0, 225);
@@ -421,6 +280,9 @@ function generateGraph() {
   graphctx1.lineTo(20, 350);
   graphctx1.moveTo(20, 225);
   graphctx1.lineTo(graphCanvas1.width, 225);
+  graphctx1.moveTo(20,350)
+  graphctx1.lineTo(graphCanvas1.width, 350);
+
   graphctx1.strokeStyle = "black";
   graphctx1.stroke();
   graphctx1.closePath();
@@ -430,14 +292,24 @@ function generateGraph() {
   let i = 0;
   graphctx1.strokeStyle = "green";
   graphctx1.lineWidth = 1;
-  while (i < graphCanvas1.width) {
+  while (i < graphCanvas1.width ) {
     graphctx1.lineTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
     graphctx1.moveTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
     i += 0.01;
   }
   graphctx1.stroke();
+ 
+  graphctx1.font='12px Nunit';
 
-  // Graph 2
+            // graphctx1.fillText("\u03C9d="+wd.toFixed(3)+"rad/s",430,370);
+            graphctx1.font='16px Comic Sans MS';
+            let dispstr = "Displacement: " + (dispdisp/5).toFixed(2) + " mm";
+          
+            let timestr = "Time: " + (disptime*1000).toFixed(2) + " ms";
+          
+            graphctx1.fillText(dispstr,10,370);
+            graphctx1.fillText(timestr,240,370);
+
   let graph2X = setMediaQueries(graphctx2);
   graphctx2.canvas.width = document.documentElement.clientWidth * scaleX;
   graphctx2.canvas.height = document.documentElement.clientHeight * scaleY;
@@ -477,19 +349,123 @@ function generateGraph() {
   graphctx2.stroke();
   graphctx2.font = "2rem Comic sans MS";
   graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 260, 300);
+
+  graphctx1.beginPath();
+  graphctx1.strokeStyle= "black";
+  graphctx1.moveTo(x, y);
+  graphctx1.lineTo(x , y + 70);
+  graphctx1.stroke();
+
+}
+ // Function to get mouse coordinates relative to the canvas
+ function getCoordinates(event) {
+  const rect = graphCanvas1.getBoundingClientRect();
+  const clientX = event.clientX - offsetX|| (event.touches && event.touches[0].clientX);
+  const clientY = event.clientY || (event.touches && event.touches[0].clientY);
+  const x = clientX - rect.left;
+  const y = clientY - rect.top;
+  return { x, y };
+}
+function handleMove(event) {
+  const { x, y } = getCoordinates(event);
+
+  
+  var xaxis =  ` ${x.toFixed(2)}`;
+
+
+  disptime = 0.9/295*(xaxis-28);
+  dispdisp = actdisplace(disptime) 
+  console.log(dispdisp);
+
+
+  
 }
 
+
+function handleEnd() {
+  tooltip.style.display = 'none';
+}
+
+graphCanvas1.addEventListener('mousemove', handleMove);
+graphCanvas1.addEventListener('touchmove', handleMove);
+graphCanvas1.addEventListener('mouseout', handleEnd);
+graphCanvas1.addEventListener('touchend', handleEnd);
+ function toggleImg(){
+
+  var cross = document.getElementById("cross");
+  cross.style.display = (cross.style.display === "none") ? "block" : "none";
+
+  var beam = document.getElementById("beam");
+  beam.style.display = (beam.style.display === "none") ? "block" : "none";
+
+  document.getElementById("checkint").value="";
+  document.getElementById("checksapn").innerHTML="";
+ 
+  var nextbutton = document.getElementById("screenchangesforward");
+  nextbutton.style.display = (nextbutton.style.display === "none") ? "block" : "none";
+
+  var restart = document.getElementById("restart1");
+  restart.style.display = (restart.style.display === "none") ? "block" : "none";
+ 
+  
+
+
+}
+$("#graphbutton").click(function () {
+  console.log("clicked");
+});
+function checkans(){
+  let intvalue = document.getElementById("checkint");
+  let natfreqans = wn;
+  console.log(natfreqans);
+  let ans = parseFloat(intvalue.value)
+  // let resultimg = document.getElementById("resultimg");
+  if (ans.toFixed(1) == natfreqans.toFixed(1)) {
+          document.getElementById("checksapn").innerHTML = "<span style='color:green'>&#10004;</span>";
+      } else {
+          document.getElementById("checksapn").innerHTML = "<span style='color:red'>&#10008;</span>";
+      }
+}
 function plotgraph() {
+  endmass = 25;//Updating variables
+  beamlength = 1500;
+  dampingratio =0.05;
+   secname = "I section";
+   matname =  "Steel";
   const graphDiv = document.querySelectorAll(".graph-div");
-  console.log(graphDiv);
+
   graphDiv.forEach((graph) => {
     graph.classList.toggle("display-hide");
+   
   });
   generateGraph();
   graphDiv[0].scrollIntoView({
     behavior: "smooth",
   });
 }
+function changescreen1(){
+  const canvasDiv= document.querySelectorAll(".canvas__div");
+
+  canvasDiv.forEach((canvas) => {
+    canvas.classList.toggle("display-hide");
+    
+  })
+  draw();
+
+  
+}
+function printcordinates(x,xaxisValue){
+ 
+
+  
+  xaxisValue = ` ${x.toFixed(2)}`;
+  console.log(xaxisValue  );
+
+
+console.log(dispdisp);
+}
+
+  
 
 window.addEventListener("load", varinit);
 
@@ -531,15 +507,99 @@ const selectSection = function () {
     });
     $("#Ivalue").spinner({
       spin: function (event, ui) {
-        A = ui.value;
-        I = $("#CsArea").spinner("value");
+        I = ui.value;
+        A = $("#CsArea").spinner("value");
         sectionTooltip.innerHTML = `Area = ${A} m<sup>2</sup>, I = ${I} m<sup>4</sup>`;
       },
     });
   }
 };
+function randomize(){
+ 
+  disptime = 0;
+  dispdisp = 500;
+  document.getElementById("checkint").value="";
+  document.getElementById("checksapn").innerHTML="";
+  let areano  =  Math.floor(Math.random() * 6);
+  switch (areano) {
+      //I section
+    case 0:
 
-sections.addEventListener("change", selectSection);
+        A=14.6E-4;
+        I=257.5E-8;
+        secname = "I section"
+       
+       break;
+
+       //T section
+    case 1:
+      
+        A=28.88E-4;
+        I=541.1E-8;
+        secname = "T section"
+        break;
+
+        //C section
+    case 2:
+     
+        A=11.7E-4;
+        I=186.7E-8;
+        secname = "C section"
+       break;
+
+       //L section
+    case 3:
+    
+        A=22.59E-4;
+        I=207E-8;
+        secname = "L section"
+       break;
+
+       //Sqr section
+    case 4:
+  
+        A=225E-4;
+        I=4218.75E-8;
+        secname = "Square section"
+       break;
+
+       //Circular section
+    case 5:
+      
+        A=176.72E-4;
+        I=2485.05E-8;
+        secname = "Circular section"
+       break;  
+ }
+let matno = Math.floor(Math.random() * 3)
+switch (matno){
+   //Steel
+case 0:
+    E=200E9;
+    rho=7750;
+    matname = "Steel";
+    break;
+    //Aluminium
+case 1:
+    E=70.33E9;
+    rho=2712;
+    matname = "Aluminium";
+    break;
+    //Bronze
+case 2:
+    E=111.006E9;
+    rho=8304;
+    matname = "Bronze";
+    break;
+
+}
+beamlength =  Math.floor(Math.random() * (2001)) + 1000;
+console.log(beamlength);
+endmass =  Math.floor(Math.random() * (200));
+dampingratio = (Math.random()*0.5).toFixed(2);
+
+}
+
 const selectMaterial = function () {
   let value = materials.value;
   const infos = Object.entries(matInfo[value]);
@@ -556,4 +616,4 @@ const selectMaterial = function () {
   }
   varupdate();
 };
-materials.addEventListener("change", selectMaterial);
+
