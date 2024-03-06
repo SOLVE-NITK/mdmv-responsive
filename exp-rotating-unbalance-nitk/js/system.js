@@ -45,15 +45,15 @@ class System  {
         // spring
         image(spr, this.x_equilibrium - wid - 10, this.y_equilibrium + 16 + this.y, wid, hei - this.y)
         // base
-        rect(80, 440, this.width, 10)
+        rect(80, 340, this.width, 10)
         // damper
         strokeWeight(3);
         stroke(0, 0, 255)
-        line(215, 440, 215, 410);
-        line(215, 410, 230, 410);
-        line(215, 410, 200, 410);
-        line(200, 410, 200, 300);
-        line(230, 410, 230, 300);
+        line(215, 340, 215, 310);
+        line(215, 310, 230, 310);
+        line(215, 310, 200, 310);
+        line(200, 310, 200, 200);
+        line(230, 310, 230, 200);
 
         line(215, this.y_equilibrium + this.y, 215, this.y_equilibrium + this.y + 125)
         line(215, this.y_equilibrium + this.y + 125, 225, this.y_equilibrium + this.y + 125);

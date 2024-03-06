@@ -236,6 +236,7 @@ h1 {
   grid-column: 1/-1;
   width: 100%;
   height: auto;
+ 
 }
 #canvas {
   border-left: 1px solid rgba(177, 176, 176, 0.855);
@@ -376,11 +377,12 @@ h1 {
 #canvas-container canvas {
   width: 100% !important;
   height: auto !important;
+  
 }
 
 #cleargraph {
   position: absolute;
-  left: 15rem;
+  left: 50rem;
   top: 6rem;
   /* width: 10%; */
   padding: 0.5rem;

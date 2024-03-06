@@ -11,7 +11,6 @@ function varinit() {
   $("#dampingSlider").slider("value", 0.07);
   $("#dampingSpinner").spinner("value", 0.07);
 
-
   $("#magnitudeSpinner").spinner("value", 10);
 
   $("#frequencySlider").slider("value", 6);
@@ -28,13 +27,11 @@ function varchange() {
   // setting trace point coordinate arrays to empty on change of link length
   $("#stiffnessSlider").on("slide", function (e, ui) {
     $("#stiffnessSpinner").spinner("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#stiffnessSpinner").on("spin", function (e, ui) {
     $("#stiffnessSlider").slider("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#stiffnessSpinner").on("change", function () {
     varchange();
@@ -47,13 +44,11 @@ function varchange() {
   // setting trace point coordinate arrays to empty on change of link length
   $("#massSlider").on("slide", function (e, ui) {
     $("#massSpinner").spinner("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#massSpinner").on("spin", function (e, ui) {
     $("#massSlider").slider("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#massSpinner").on("change", function () {
     varchange();
@@ -66,13 +61,11 @@ function varchange() {
   // setting trace point coordinate arrays to empty on change of link length
   $("#dampingSlider").on("slide", function (e, ui) {
     $("#dampingSpinner").spinner("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#dampingSpinner").on("spin", function (e, ui) {
     $("#dampingSlider").slider("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#dampingSpinner").on("change", function () {
     varchange();
@@ -85,13 +78,11 @@ function varchange() {
   // setting trace point coordinate arrays to empty on change of link length
   $("#magnitudeSlider").on("slide", function (e, ui) {
     $("#magnitudeSpinner").spinner("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#magnitudeSpinner").on("spin", function (e, ui) {
     $("#magnitudeSlider").slider("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#magnitudeSpinner").on("change", function () {
     varchange();
@@ -104,19 +95,17 @@ function varchange() {
   // setting trace point coordinate arrays to empty on change of link length
   $("#frequencySlider").on("slide", function (e, ui) {
     $("#frequencySpinner").spinner("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
   $("#frequencySpinner").on("spin touchstart", function (e, ui) {
     $("#frequencySlider").slider("value", ui.value);
-    ptx = [];
-    pty = [];
+    resetPlot();
   });
-  
+
   $("#frequencySpinner").on("change", function () {
     varchange();
   });
- 
+
   // $("#frequencySpinner").on("touchstart", function (e) {
   //   // Your touch event logic here
   //   varchange();
@@ -149,4 +138,20 @@ function varupdate() {
   // document.querySelector("#mass").innerHTML =  .toFixed(4) + " rad/s"; //Displaying values
   // document.querySelector("#k").innerHTML = η.toFixed(4);
   // document.querySelector("#c").innerHTML = z.toFixed(4);
+}
+
+function resetPlot() {
+  k = $("#stiffnessSpinner").spinner("value");
+  m = $("#massSpinner").spinner("value");
+  z = $("#dampingSpinner").spinner("value");
+  y = $("#magnitudeSpinner").spinner("value");
+  w = $("#frequencySpinner").spinner("value");
+  spring1.initialise(k, m, z, y, w);
+  spring1.update(t, factor);
+  position_graph.update(spring1.y);
+  resetGraphs();
+  magFac.initialise();
+  phaseAng.initialise();
+  magFac.draw();
+  phaseAng.draw();
 }

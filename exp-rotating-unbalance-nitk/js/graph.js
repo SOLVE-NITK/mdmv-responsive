@@ -42,11 +42,11 @@ class Graph {
 
         fill(0)
         strokeWeight(0)
-        textSize(18);
+        textSize(16);
         text(this.xLabel, this.x + this.w, this.y);
         translate(this.x, this.y)
         rotate(radians(-90))
-        text(this.yLabel, -this.h + 20, -10);
+        text(this.yLabel, -this.h + 40, -10);
 
         pop();
     }

@@ -3,8 +3,6 @@ function clearGraphs() {
 }
 function resetGraphs() {
   position_graph.delete();
- 
-  if (clear) console.log(1);
 }
 
 function runPage1() {
@@ -13,15 +11,6 @@ function runPage1() {
   stroke(0);
   fill(0);
   strokeWeight(0);
-  push();
-  // textSize(36);
-  // textFont("Times");
-  // text("ROTATING UNBALANCE", 255, 50);
-
-  // textSize(16);
-  // text("CONTROLS", 655, 417);
-  // text("VARIABLES", 655, 107);
-  pop();
 
   push();
   stroke(0, 100);
@@ -56,21 +45,21 @@ function runPage1() {
   position_graph.update(spring1.y);
   position_graph.draw(0, 0, 255);
   document.querySelector("#mass").textContent =
-  spring1.wn.toFixed(4) + " rad/s"; //Displaying values
-document.querySelector("#k").textContent = (w / spring1.wn).toFixed(4);
-document.querySelector("#c").textContent = z.toFixed(4);
+    spring1.wn.toFixed(4) + " rad/s"; //Displaying values
+  document.querySelector("#k").textContent = (w / spring1.wn).toFixed(4);
+  document.querySelector("#c").textContent = z.toFixed(4);
   // strokeWeight(0);
 
   // textSize(14);
-  // textFont("Comic Sans MS");
+  textFont("Nunito");
   // fill(231, 114, 43);
   // text("ω" + "n" + " = " + spring1.wn.toFixed(4) + " rad/s", 40, 520);
   // text("η = " + (slider_ang_freq.inp / spring1.wn).toFixed(4), 40, 540);
   // text("ζ = " + z.inp.toFixed(4), 40, 560);
 
-  textSize(24);
+  textSize(14);
   fill(0, 0, 0);
-  text("Harmonic Exitation", 225,105);
+  text("Harmonic Exitation", 225, 50);
 
   // k.draw();
   // m.draw();
