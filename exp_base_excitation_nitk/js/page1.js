@@ -74,11 +74,11 @@ function runPage1() {
 
   //   button1.draw();
   //   button2.draw();
-  k = $("#stiffnessSpinner").spinner("value");
-  m = $("#massSpinner").spinner("value");
-  z = $("#dampingSpinner").spinner("value");
-  y = $("#magnitudeSpinner").spinner("value");
-  w = $("#frequencySpinner").spinner("value");
+  // k = $("#stiffnessSpinner").spinner("value");
+  // m = $("#massSpinner").spinner("value");
+  // z = $("#dampingSpinner").spinner("value");
+  // y = $("#magnitudeSpinner").spinner("value");
+  // w = $("#frequencySpinner").spinner("value");
 
   t = t + dt;
 }

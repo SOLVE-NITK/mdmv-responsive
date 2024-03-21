@@ -345,6 +345,7 @@ h1 {
   font-size: 1.1rem;
   /* right: -10rem; */
   display: none;
+  text-align: left;
 }
 
 .circuit-dia:hover span,
@@ -363,9 +364,6 @@ h1 {
   border-top: 1px solid var(--clr-title-background);
 }
 
-#graphscreen1{
-  padding-bottom: 10px;
-}
 
 
 /* **********VARIABLES**************** */
@@ -405,7 +403,7 @@ h1 {
 
 .cir-tooltip1 {
   position: relative;
-  top: -32rem;
+  top: -30rem;
   left: 3rem;
   font-family: "Nunito", sans-serif;
   font-size: 1.4rem;

@@ -281,9 +281,9 @@ function varupdate() {
   document.querySelector("#wd").innerHTML = wd.toFixed(4) + "rad/s";
   document.querySelector("#wn").innerHTML = wn.toFixed(4) + "rad/s";
 
-  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg  c = ${c.toFixed(
+  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg <br>  c = ${c.toFixed(
     4
-  )}Ns/m \n k = ${(k / 1000).toFixed(4)}N/mm
+  )}Ns/m \n<br> k = ${(k / 1000).toFixed(4)}N/mm
   `;
   //If simulation is running
   if (!simstatus) {

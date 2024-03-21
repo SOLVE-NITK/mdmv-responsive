@@ -336,6 +336,7 @@ h1 {
   background-color: rgba(247, 247, 247, 0.5);
   padding: 0.5rem;
   font-size: 1.1rem;
+  text-align: left;
   display: none;
 }
 .circuit-dia:hover span,

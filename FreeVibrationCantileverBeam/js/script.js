@@ -283,9 +283,9 @@ function varupdate() {
   document.querySelector("#wd").innerHTML = wd.toFixed(4) + "rad/s";
   document.querySelector("#wn").innerHTML = wn.toFixed(4) + "rad/s";
 
-  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg  c = ${c.toFixed(
+  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg <br>c = ${c.toFixed(
     4
-  )}Ns/m \n k = ${(k / 1000).toFixed(4)}N/mm
+  )}Ns/m \n<br> k = ${(k / 1000).toFixed(4)}N/mm
   `;
   //If simulation is running
   if (!simstatus) {
@@ -410,29 +410,29 @@ function generateGraph() {
   graphctx1.clearRect(0, 0, graphCanvas1.width, graphCanvas1.height);
   graphctx1.font = "2rem Comic sans MS";
   graphctx1.save();
-  graphctx1.translate(0, 225);
+  graphctx1.translate(0, 125);
   graphctx1.rotate(-Math.PI / 2);
-  graphctx1.fillText("Displacement", 0, 15);
+  graphctx1.fillText("Displacement", -60, 15);
   graphctx1.restore();
-  graphctx1.fillText("Time", 150, 350);
+  graphctx1.fillText("Time", 150, 250);
   graphctx1.beginPath();
 
-  graphctx1.moveTo(20, 100);
-  graphctx1.lineTo(20, 350);
-  graphctx1.moveTo(20, 225);
-  graphctx1.lineTo(graphCanvas1.width, 225);
+  graphctx1.moveTo(20, 20);//changed
+  graphctx1.lineTo(20, 250);
+  graphctx1.moveTo(20, 125);
+  graphctx1.lineTo(graphCanvas1.width, 125);
   graphctx1.strokeStyle = "black";
   graphctx1.stroke();
   graphctx1.closePath();
 
   graphctx1.beginPath();
-  graphctx1.moveTo(20, 225);
+  graphctx1.moveTo(20, 125);
   let i = 0;
   graphctx1.strokeStyle = "green";
   graphctx1.lineWidth = 1;
   while (i < graphCanvas1.width) {
-    graphctx1.lineTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
-    graphctx1.moveTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.lineTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.moveTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
     i += 0.01;
   }
   graphctx1.stroke();
@@ -445,17 +445,17 @@ function generateGraph() {
   graphctx2.font = "2rem Comic sans MS";
   graphctx2.beginPath();
   graphctx2.strokeStyle = "black";
-  graphctx2.moveTo(20, 330);
-  graphctx2.lineTo(20, 135);
-  graphctx2.moveTo(20, 330);
-  graphctx2.lineTo(520, 330);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(20, 35);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(520, 230);
   graphctx2.stroke();
   graphctx2.save();
   graphctx2.translate(10, 345);
   graphctx2.rotate(-Math.PI / 2);
-  graphctx2.fillText("Amplitude", 45, 5);
+  graphctx2.fillText("Amplitude", 170, 5);
   graphctx2.restore();
-  graphctx2.fillText("Frequency(rad/s)", 170, 350);
+  graphctx2.fillText("Frequency(rad/s)", 10, 280);
   graphctx2.strokeStyle = "#800080";
   graphctx2.lineWidth = 1;
   graphctx2.moveTo(350, 345);
@@ -465,18 +465,18 @@ function generateGraph() {
   let j = 0;
   graphctx2.beginPath();
   while (j < 300) {
-    graphctx2.lineTo(j + 50, 325 - 0.9 * amplitude(0.01 * j));
-    graphctx2.moveTo(j + 50, 325 - 0.9 * amplitude(0.01 * j));
+    graphctx2.lineTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
+    graphctx2.moveTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
     j += 0.01;
   }
   graphctx2.stroke();
   graphctx2.beginPath();
   graphctx2.strokeStyle = "green";
-  graphctx2.moveTo(150, 360);
-  graphctx2.lineTo(150, 100);
+  graphctx2.moveTo(150, 260);
+  graphctx2.lineTo(150, 45);
   graphctx2.stroke();
   graphctx2.font = "2rem Comic sans MS";
-  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 260, 300);
+  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 100, 40);
 }
 
 function plotgraph() {

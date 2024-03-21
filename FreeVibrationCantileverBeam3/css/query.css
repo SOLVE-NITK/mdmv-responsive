@@ -60,7 +60,7 @@ em:current font size
   .cir-tooltip1
   {
     position:relative;
-    top: -50rem;
+    top: -58rem;
   }
 }
 
@@ -149,7 +149,7 @@ em:current font size
   .cir-tooltip1
   {
     position:relative;
-    top: -30rem;
+    top: -33rem;
   }
 }
 
@@ -176,7 +176,7 @@ em:current font size
   .cir-tooltip1
   {
     position:relative;
-    top: -30rem;
+    top: -32rem;
   }
 }
 
@@ -220,7 +220,7 @@ em:current font size
   .cir-tooltip1
   {
     position:relative;
-    top: -45rem;
+    top: -46rem;
   }
 }
 
@@ -298,9 +298,19 @@ em:current font size
   }
   .cir-tooltip1
   {
-    position:relative;
-    top: -30rem;
-  }
+    position: relative;
+    top: -34rem;
+    width: 327px;
+}
+}
+
+@media (max-width: 20em){
+  .cir-tooltip1
+  {
+    position: relative;
+    top: -29rem;
+    width: 327px;
+}
 }
 /* 
 

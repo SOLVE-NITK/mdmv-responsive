@@ -150,6 +150,10 @@ em:current font size
     border: none;
     border-top: 1px solid rgba(177, 176, 176, 0.855);
   }
+  #cleargraph{
+    left: 53rem;
+  }
+
 }
 
 /* **************************** */
@@ -159,6 +163,10 @@ em:current font size
   .canvas__div {
     grid-template-columns: 1fr;
   }
+  #cleargraph{
+    left: 40rem;
+  }
+
   .img-div {
     flex-direction: column;
   }
@@ -209,6 +217,9 @@ em:current font size
   .container {
     padding: 0.5rem;
     gap: 1rem;
+  }
+  #cleargraph{
+    left: 32rem;
   }
 
   .title-div h1 {
@@ -276,7 +287,12 @@ em:current font size
   .tool-list span {
     font-size: 1.3rem;
   }
+  #cleargraph{
+    left: 21rem;
+  }
 }
+
+
 /* 
 
 - Font sizes (px)

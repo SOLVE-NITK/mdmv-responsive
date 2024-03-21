@@ -56,6 +56,12 @@ function runPage3() {
   // clear = createButton("Clear Graphs");
   // clear.parent("canvas-container");
   // clear.position(200, 200);
+  
+  document.querySelector("#mass").textContent =
+    spring1.wn.toFixed(4) + " rad/s"; //Displaying values
+  document.querySelector("#k").textContent = (w / spring1.wn).toFixed(4);
+  document.querySelector("#c").textContent = z.toFixed(4);
+
 
   // clear.mousePressed(clearMe);
 }

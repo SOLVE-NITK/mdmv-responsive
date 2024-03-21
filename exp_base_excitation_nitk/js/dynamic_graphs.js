@@ -43,7 +43,7 @@ class DynamicGraph {
 
     stroke(0);
     strokeWeight(1);
-    line(this.x, this.y , this.x, this.y - this.h - 50);
+    line(this.x, this.y, this.x, this.y - this.h - 50);
     line(this.x, this.y, this.x + this.w, this.y);
 
     strokeWeight(0);
@@ -88,7 +88,7 @@ class DynamicGraph {
     );
 
     let j = this.timer;
-    strokeWeight(1);
+    strokeWeight(1.5);
     noFill();
     for (let i = 0; i < j; i++) {
       vertex(

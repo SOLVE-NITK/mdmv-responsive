@@ -9,7 +9,13 @@ em:current font size
 /* Below 1344px (Smaller Desktops) */
 /* **************************** */
 
-@media (max-width: 84em) {}
+@media (max-width: 84em) {
+  .cir-tooltip1 {
+    position: absolute;
+    top: 46rem;
+    max-width: 300px;
+  }
+}
 
 /* **************************** */
 /* Below 1200px (Lanscape Tablets) */
@@ -66,9 +72,10 @@ em:current font size
   }
 
   .cir-tooltip1 {
-    position: relative;
-    top: -50rem;
+    position: absolute;
+    top: 50rem;
   }
+  
 }
 
 /* **************************** */
@@ -167,8 +174,8 @@ em:current font size
   }
 
   .cir-tooltip1 {
-    position: relative;
-    top: -30rem;
+    position: absolute;
+    top: 74rem;
   }
 }
 
@@ -197,8 +204,8 @@ em:current font size
   }
 
   .cir-tooltip1 {
-    position: relative;
-    top: -30rem;
+    position: absolute;
+    top: 74rem;
   }
 }
 
@@ -249,8 +256,8 @@ em:current font size
   }
 
   .cir-tooltip1 {
-    position: relative;
-    top: -4rem;
+    position: absolute;
+    top: 79rem;
 
   }
 }
@@ -342,28 +349,43 @@ em:current font size
   }
 
   .cir-tooltip1 {
-    position: relative;
-    top: -28rem;
+    position: absolute;
+    top: 74rem;
     font-size: 1rem;
-  }
+    
+   
+ 
 }
+}
+
+
+@media (max-width: 31em){
+  .cir-tooltip1 {
+    position: absolute;
+    top: 66rem;
+    font-size: 1rem;
+}
+}
+
+
+
 
 @media (max-width: 24em) {
   .cir-tooltip1 {
-    position: relative;
+    position: absolute;
     left: 10px;
-    top: -29rem;
+    top: 65rem;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 20em) {
   .cir-tooltip1 {
-    position: relative;
+    position: absolute;
     left: 2px;
-    top: -29rem;
+    top: 61rem;
     font-size: 1rem;
-  }
+}
 }
 
 /* 

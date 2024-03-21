@@ -76,7 +76,7 @@
               <span>Variables</span>
           </li>
           <li class="tool-list">
-            <a href="#comments" class="tool-link" title="Comments"
+            <a href="#comments" class="tool-link" title="Results"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#089B93"
@@ -95,11 +95,11 @@
               <span>Results</span>
           </li>
           <li class="tool-list">
-            <img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons"/>
+            <img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" title="playPause"/>
             <span class="playPause">Pause</span>
           </li>
           <li class="tool-list">
-            <img id="graphbutton" onclick="plotgraph()" src="./images/graphbutton.svg" alt="" class="icons"/>
+            <img id="graphbutton" onclick="plotgraph()" src="./images/graphbutton.svg" alt="" class="icons" title="Graph"/>
             <span>Graph</span>
           </li>
         </ul>
@@ -197,7 +197,7 @@
               </div>
               <div class="var-div">
                 <div class="input-container mass">
-                <label for="massSpinner">Centre Mass(kg)</label>
+                <label for="massSpinner">Centre Mass</label>
                 <input class="var-spinner" id="massSpinner" name="value" />
                 <span class="mm">kg</span>
               </div>
@@ -214,10 +214,8 @@
                 <p id="p1">m = <span id="mass"></span></p>
                 <p id="p2">k = <span id="k"></span></p>
                 <p id="p3">c = <sapn id="c"></span></p>
-                <div id="omegavalues">
-                  <p>&#969;<sub>n</sub> = <span id="wn"></span></p>
-                  <p>&#969;<sub>d</sub> = <span id="wd"></span></p> 
-                </div>
+                <p>&#969;<sub>n</sub> = <span id="wn"></span></p>
+                <p>&#969;<sub>d</sub> = <span id="wd"></span></p> 
             </div>
           </div>
           </div>

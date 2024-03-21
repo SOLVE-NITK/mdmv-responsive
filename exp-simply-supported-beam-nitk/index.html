@@ -69,7 +69,7 @@
           <span>Variables</span>
         </li>
         <li class="tool-list">
-          <a href="#comments" class="tool-link" title="Comments"><svg xmlns="http://www.w3.org/2000/svg" fill="#089B93"
+          <a href="#comments" class="tool-link" title="Results"><svg xmlns="http://www.w3.org/2000/svg" fill="#089B93"
               viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" class="icons">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -80,7 +80,7 @@
           <img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" />
           <span class="playPause">Pause</span>
         </li>
-        <li class="tool-list">
+        <li class="tool-list" title="Graph">
           <img id="graphbutton" onclick="plotgraph()" src="./images/graphbutton.svg" alt="" class="icons" />
           <span>Graph</span>
         </li>
@@ -134,66 +134,68 @@
           </div>
         </div>
         <div id="variables" class="main__task-div">
-          <div class="variable">
-            <div class="settings-sections">
-              <h3 class="task-title">Variables</h3>
-              <div class="variables-sections">
-
-                <div class="var-div">
-                  <label for="materials"><span class="text1">Materials</span></label>
-                  <span class="select1">
-                    <select class="var-select select-menu" name="materials" id="materials">
-                      <option class="select-menu" value="0">Steel</option>
-                      <option class="select-menu" value="1">Aluminium</option>
-                      <option class="select-menu" value="2">Bronze</option>
-                    </select>
-                  </span>
-                </div>
-                <div class="var-div">
-                  <label for="sections"><span class="text2">Sections</span></label>
-                  <span class="select2">
-                    <select class="var-select select-menu" name="sections" id="sections">
-                      <option class="select-menu" value="0">I section</option>
-                      <option class="select-menu" value="1">T section</option>
-                      <option class="select-menu" value="2">C section</option>
-                      <option class="select-menu" value="3">L section</option>
-                      <option class="select-menu" value="4">Square section</option>
-                      <option class="select-menu" value="5">
-                        Circular section
-                      </option>
-                      <option class="select-menu" value="6">Other section</option>
-                    </select>
-                  </span>
-                </div>
-                <div class="var-div var-divLength">
-
-                  <label for="lengthSpinner"><span class="text3"> Length</span> <span
-                      class="lengthspin">mm</span></label>
-                  <span class="inputbox">
-                    <input class="var-spinner" id="lengthSpinner" name="value" />
-                  </span>
-                  <div class="var-slider" id="lengthSlider"></div>
-                </div>
-                <div class="var-div var-divDamp">
-                  <label for="dampSpinner"><span class="text4">Damping Ratio</span></label>
-                  <span class="inputbox">
-                    <input class="var-spinner" id="dampSpinner" name="value" />
-                  </span>
-                  <div class="var-slider" id="dampSlider"></div>
-                </div>
-                <div class="var-div ">
-                  <label for="massSpinner"><span class="text5">Centre Mass</span><span
-                      class="massspin">kg</span></label>
-                  <span class="inputbox">
-                    <input class="var-spinner" id="massSpinner" name="value" />
-                  </span>
-                  <div class="var-slider" id="massSlider"></div>
-                </div>
+          <div class="settings-sections">
+            <h3 class="task-title">Variables</h3>
+            <div class="variables-sections">
+            
+            <div class="var-div">
+              <div class="input-container">
+                <label for="materials">Materials</label>
+                <select
+                  class="var-select select-menu"
+                  name="materials"
+                  id="materials"
+                >
+                  <option class="select-menu" value="0">Steel</option>
+                  <option class="select-menu" value="1">Aluminium</option>
+                  <option class="select-menu" value="2">Bronze</option>
+                </select>
               </div>
             </div>
+            <div class="var-div selsec">
+              <div class="input-container">
+                <label for="sections">Sections</label>
+                <select
+                  class="var-select select-menu sbox"
+                  name="sections"
+                  id="sections"
+                >
+                  <option class="select-menu" value="0">I section</option>
+                  <option class="select-menu" value="1">T section</option>
+                  <option class="select-menu" value="2">C section</option>
+                  <option class="select-menu" value="3">L section</option>
+                  <option class="select-menu" value="4">Square section</option>
+                  <option class="select-menu" value="5"> Circular section</option>
+                  <option class="select-menu" value="6">Other section</option>
+                </select>
+              </div>
+            </div>
+            <div class="var-div">
+              <div class="input-container len">
+              <label for="lengthSpinner">Length</label>
+              <input class="var-spinner" id="lengthSpinner" name="value" />
+              <span class="mm">mm</span>
+            </div>
+              <div class="var-slider slider1" id="lengthSlider"></div>
+            </div>
+            <div class="var-div">
+              <div class="input-container damp">
+              <label for="dampSpinner">Damping Ratio</label>
+              <input class="var-spinner" id="dampSpinner" name="value" />
+            </div>
+              <div class="var-slider slider2" id="dampSlider"></div>
+            </div>
+            <div class="var-div">
+              <div class="input-container mass">
+              <label for="massSpinner">Centre Mass</label>
+              <input class="var-spinner" id="massSpinner" name="value" />
+              <span class="mm">kg</span>
+            </div>
+              <div class="var-slider slider3" id="massSlider"></div>
+            </div>
+          </div>
           </div>
         </div>
-
         <div id="comments" class="main__task-div">
           <h3 class="task-title">Results</h3>
           <div class="settings-sections">

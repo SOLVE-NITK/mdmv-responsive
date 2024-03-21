@@ -52,24 +52,52 @@ function simstate() {
 function varinit() {
   varchange();
 
-  $("#fSlider").slider("value", 750);
-  $("#fSpinner").spinner("value", 750);
+  // Add event listeners to the spinner inputs for validation
+  $("#fSpinner").on("input", function() {
+    validatePositiveInput("#fSpinner");
+  });
 
-  $("#omegaSlider").slider("value", 2.8);
-  $("#omegaSpinner").spinner("value", 2.8);
+  $("#omegaSpinner").on("input", function() {
+    validatePositiveInput("#omegaSpinner");
+  });
 
-  $("#k1Slider").slider("value", 2500);
-  $("#k1Spinner").spinner("value", 2500);
+  $("#k1Spinner").on("input", function() {
+    validatePositiveInput("#k1Spinner");
+  });
 
-  $("#m1Slider").slider("value", 250);
-  $("#m1Spinner").spinner("value", 250);
+  $("#m1Spinner").on("input", function() {
+    validatePositiveInput("#m1Spinner");
+  });
 
-  $("#k2Slider").slider("value", 500);
-  $("#k2Spinner").spinner("value", 500);
+  $("#k2Spinner").on("input", function() {
+    validatePositiveInput("#k2Spinner");
+  });
 
-  $("#m2Slider").slider("value", 50);
-  $("#m2Spinner").spinner("value", 50);
-}
+  $("#m2Spinner").on("input", function() {
+    validatePositiveInput("#m2Spinner");
+  });
+
+    // Set initial values for sliders and spinners
+    $("#fSlider").slider("value", 750);
+    $("#fSpinner").spinner("value", 750);
+  
+    $("#omegaSlider").slider("value", 2.8);
+    $("#omegaSpinner").spinner("value", 2.8);
+  
+    $("#k1Slider").slider("value", 2500);
+    $("#k1Spinner").spinner("value", 2500);
+  
+    $("#m1Slider").slider("value", 250);
+    $("#m1Spinner").spinner("value", 250);
+  
+    $("#k2Slider").slider("value", 500);
+    $("#k2Spinner").spinner("value", 500);
+  
+    $("#m2Slider").slider("value", 50);
+    $("#m2Spinner").spinner("value", 50);
+  
+    varupdate();
+  }
 
 // Initialise and Monitor variable containing user inputs of system parameters.
 //change #id and repeat block for new variable. Make sure new <div> with appropriate #id is included in the markup
@@ -96,10 +124,10 @@ function varchange() {
     varchange();
   });
 
-  $("#omegaSlider").slider({ max: 16, min: 0, step: 0.01 });
+  $("#omegaSlider").slider({ max: 16, min: 1, step: 0.01 });
 
   // number initialisation : jQuery widget
-  $("#omegaSpinner").spinner({ max: 16, min: 0, step: 0.01 });
+  $("#omegaSpinner").spinner({ max: 16, min: 1, step: 0.01 });
   // monitoring change in value and connecting slider and number
   // setting trace point coordinate arrays to empty on change of link length
   $("#omegaSlider").on("slide", function (c, ui) {
@@ -193,6 +221,14 @@ function varchange() {
   });
 
   varupdate();
+}
+
+function validatePositiveInput(inputId) {
+  const value = $(inputId).spinner("value");
+  if (value <= 0 || isNaN(value)) {
+    // If value is zero, negative, or NaN, set the value to a default value
+    $(inputId).spinner("value", 1); // You can change 1 to any default value you prefer
+  }
 }
 
 function varupdate() {

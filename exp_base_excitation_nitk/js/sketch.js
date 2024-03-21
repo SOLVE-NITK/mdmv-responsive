@@ -174,6 +174,7 @@ function screenChangePrevious() {
 }
 function phaseAngleGraph() {
   resetGraphs();
+  clearMe();
   page1 = false;
   page2 = true;
   page3 = false;
@@ -184,6 +185,7 @@ function phaseAngleGraph() {
 
 function magnitudeGraph() {
   resetGraphs();
+  clearMe();
   page1 = false;
   page2 = false;
   page3 = true;

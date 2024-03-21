@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLVE - MDMV - Rotating Unbalanced</title>
+    <title>SOLVE - MDMV - Rotating Unbalance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -122,14 +122,19 @@ jquery.ui.touch-punch.min.js"
       src="js/event_handling.js"
     ></script> -->
 
-    <!-- <style>
-      @media (max-width: 600px) {
-        canvas {
-          width: 100%;
-          height: auto;
-        }
-      }
-    </style> -->
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var textBox = document.getElementsByClassName("var-spinner");
+          
+          textBox.addEventListener("input", function(event) {
+            var value = parseInt(textBox.value);
+            
+            if (isNaN(value) || value <= 0) {
+                textBox.value = "1";
+            }
+          });
+      });
+  </script> -->
   </head>
 
   <body>
@@ -140,7 +145,7 @@ jquery.ui.touch-punch.min.js"
             ><img src="images/logo_nitk.png" alt="Logo" class="logo"
           /></a>
         </div>
-        <h1>Rotating Unbalanced</h1>
+        <h1>Rotating Unbalance</h1>
       </div>
     </div>
     <div class="container">
@@ -189,7 +194,7 @@ jquery.ui.touch-punch.min.js"
             <span>Variables</span>
           </li>
           <li class="tool-list">
-            <a href="#comments" class="tool-link" title="Comments"
+            <a href="#comments" class="tool-link" title="Result"
             ontouchstart="window.location.href = '#comments';"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +224,7 @@ jquery.ui.touch-punch.min.js"
             />
             <span class="playPause">Pause</span>
           </li>
-          <li class="tool-list graph-button ">
+          <li class="tool-list graph-button " title="Graph">
             <img
               id="graphbutton"
               onclick="graphPlot()"
@@ -230,7 +235,7 @@ jquery.ui.touch-punch.min.js"
             />
             <span class="">Graph</span>
           </li>
-          <li class="tool-list graph-div">
+          <li class="tool-list graph-div" title="">
             <div class="tool-list--two ">
               <img
                 id="screenchangesbackward"
@@ -293,7 +298,7 @@ jquery.ui.touch-punch.min.js"
                   <div class="input-container">
                     <label for="massSpinner">Mass</label>
                     <input class="var-spinner" id="massSpinner" name="value" />
-                    <span>kg</span>
+                    <span>k/g</span>
                   </div>
                   <div class="var-slider" id="massSlider"></div>
                 </div>
@@ -307,6 +312,7 @@ jquery.ui.touch-punch.min.js"
                       class="var-spinner"
                       id="dampingSpinner"
                       name="value"
+                     
                     />
                     <span></span>
                   </div>
@@ -322,6 +328,7 @@ jquery.ui.touch-punch.min.js"
                       class="var-spinner"
                       id="magnitudeSpinner"
                       name="value"
+                     
                     />
                     <span>kg-m</span>
                   </div>
@@ -338,6 +345,7 @@ jquery.ui.touch-punch.min.js"
                       id="frequencySpinner"
                       name="value"
                      ontouchstart=""
+                   
                     />
                     <span>rad/s</span>
                   </div>

@@ -151,9 +151,9 @@ function varupdate() {
   document.getElementById("secname").innerHTML = secname;
   document.getElementById("lengthtxt").innerHTML = beamlength;
 
-  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg  c = ${c.toFixed(
+  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg <br>  c = ${c.toFixed(
     4
-  )}Ns/m \n k = ${(k / 1000).toFixed(4)}N/mm
+  )}Ns/m \n <br> k = ${(k / 1000).toFixed(4)}N/mm
   `;
   cirTooltip1.innerHTML = 'Note: Hover on the graph to display the Displacement and Time';
  
@@ -268,7 +268,7 @@ function generateGraph( x, y) {
   graphctx1.save();
   graphctx1.translate(0, 225);
   graphctx1.rotate(-Math.PI / 2);
-  graphctx1.fillText("Displacement", 0, 15);
+  graphctx1.fillText("Displacement", -50, 15);
   graphctx1.restore();
   graphctx1.fillText("Time", 150, 350);
   graphctx1.beginPath();

@@ -340,6 +340,7 @@ h1 {
   background-color: rgba(247, 247, 247, 0.5);
   padding: 0.5rem;
   font-size: 1.1rem;
+  text-align: left;
   /* right: -10rem; */
   display: none;
 }
@@ -437,7 +438,7 @@ label {
   margin-left: 13.8rem;
 }
 .mass {
-  margin-left: -2rem;
+  margin-left: 1rem;
 }
 .slider3 {
   margin-left: 13.8rem;

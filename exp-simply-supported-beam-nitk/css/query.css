@@ -33,20 +33,25 @@ em:current font size
     width: 100%;
     margin: unset;
   }
+
   .title-div h1 {
     font-size: 2.5rem;
   }
+
   .task-title {
     font-size: 2rem;
   }
+
   .tool-menu {
     font-size: 2rem;
     gap: 2rem;
   }
+
   .icons {
     width: 3rem;
     height: 3rem;
   }
+
   .ctrl-icons {
     width: 3rem;
     height: 3rem;
@@ -55,17 +60,28 @@ em:current font size
   .tool-list span {
     font-size: 1.2rem;
   }
+
   .canvas {
     display: block;
     width: 100%;
     height: 100%;
     /* background-color: red; */
   }
+
   .div__control img {
     width: 3rem;
     height: 2.8rem;
   }
-  
+
+  #slidergraph {
+    top: 510px;
+    height: 480px;
+  }
+
+  .cir-tooltip1 {
+    position: relative;
+    top: -50rem;
+  }
 }
 
 /* **************************** */
@@ -73,6 +89,7 @@ em:current font size
 /* **************************** */
 
 @media (max-width: 59em) {
+
   .tool-link:link,
   .tool-link:visited {
     gap: 0.5rem;
@@ -101,6 +118,7 @@ em:current font size
     border-radius: 0;
     scroll-behavior: auto;
   }
+
   .tool-menu {
     list-style: none;
     display: flex;
@@ -111,34 +129,43 @@ em:current font size
     justify-content: space-evenly;
     padding: 1rem;
   }
+
   .main-section {
     grid-template-columns: 1fr;
   }
+
   .logo-div {
     width: 6.5rem;
   }
+
   .icons {
     width: 3rem;
     height: 3rem;
   }
+
   .tool-list span {
     font-size: 1rem;
   }
+
   .main__task-div:nth-child(4) {
     margin-bottom: 6rem;
   }
+
   .canvas {
     display: block;
     width: 100%;
     height: 100%;
     /* background-color: red; */
   }
+
   .main-section {
     grid-template-columns: 1fr;
   }
+
   .canvas__div {
     grid-template-columns: 1fr;
   }
+
   .canvas {
     display: block;
     width: 100%;
@@ -147,6 +174,15 @@ em:current font size
     border-top: 1px solid rgba(177, 176, 176, 0.855);
   }
 
+  #slidergraph {
+    top: 783px;
+    height: 309px;
+  }
+
+  .cir-tooltip1 {
+    position: relative;
+    top: -30rem;
+  }
 }
 
 /* **************************** */
@@ -156,9 +192,11 @@ em:current font size
   .main-section {
     grid-template-columns: 1fr;
   }
+
   .canvas__div {
     grid-template-columns: 1fr;
   }
+
   .canvas {
     display: block;
     width: 100%;
@@ -166,8 +204,14 @@ em:current font size
     border: none;
     border-top: 1px solid rgba(177, 176, 176, 0.855);
   }
+
   .tool-list span {
     font-size: 1.6rem;
+  }
+
+  .cir-tooltip1 {
+    position: relative;
+    top: -30rem;
   }
 }
 
@@ -178,35 +222,49 @@ em:current font size
   .canvas__div {
     grid-template-columns: 1fr;
   }
+
   .img-div {
     flex-direction: column;
   }
+
   .title-div {
     gap: 0rem;
     text-align: center;
   }
+
   .round {
     width: 0.6rem;
     height: 0.6rem;
   }
+
   .logo-div {
     width: 6.5rem;
   }
+
   .main__task-div:nth-child(4) {
     margin-bottom: 6rem;
   }
+
   .circuit-dia {
     width: 40%;
   }
+
   .cross-img {
     width: 60%;
   }
+
   .canvas {
     display: block;
     width: 100%;
     height: 100%;
     border: none;
     border-top: 1px solid rgba(177, 176, 176, 0.855);
+  }
+
+  .cir-tooltip1 {
+    position: relative;
+    top: -4rem;
+
   }
 }
 
@@ -229,24 +287,30 @@ em:current font size
   .logo-div {
     width: 4.5rem;
   }
+
   .div__control {
     gap: 2rem;
     /* top: 1.8rem;
     right: 1.5rem; */
   }
+
   .ctrl-icons {
     width: 2.5rem;
     height: 2.5rem;
   }
+
   .tool-menu {
     gap: 1.5rem;
   }
+
   .tool-list span {
     font-size: 1.2rem;
   }
+
   .task-title {
     font-size: 1.7rem;
   }
+
   label,
   select,
   input,
@@ -254,31 +318,67 @@ em:current font size
     display: inline-block;
     font-size: 1.5rem;
   }
+
   .main {
     gap: 0.5rem;
   }
+
   .main-section {
     gap: 0.5rem;
   }
+
   .sidebar {
     border-radius: 0;
   }
+
   .canvas {
     display: block;
     width: 100%;
     height: 100%;
     border: none;
-    border-top: 1px solid rgba(177, 176, 177, 0.855);
+    border-top: 1px solid rgba(177, 176, 176, 0.855);
     /* background-color: red; */
   }
+
   .div__control img {
     width: 2.7rem;
     height: 2.5rem;
   }
+
   .tooltip {
     font-size: 1rem;
   }
+
+  #slidergraph {
+    height: 200px;
+    top: 658px;
+  }
+
+  .cir-tooltip1 {
+    position: relative;
+    top: -28rem;
+    font-size: 1rem;
+  }
 }
+
+@media (max-width: 24em) {
+  .cir-tooltip1 {
+    position: relative;
+    left: 10px;
+    top: -29rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .cir-tooltip1 {
+    position: relative;
+    left: 2px;
+    top: -29rem;
+    font-size: 1rem;
+  }
+}
+
 /* 
 
 - Font sizes (px)

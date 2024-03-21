@@ -230,8 +230,7 @@ em:current font size
   }
   label,
   select,
-  input,
-  p {
+  input{
     display: inline-block;
     font-size: 1.5rem;
   }

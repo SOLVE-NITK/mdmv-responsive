@@ -1,11 +1,11 @@
-// var beaminf = [
-//   "ISMB 100\n h=100 mm,b=75 mm\n t1=4 mm,t2=7 mm\nIxx=257.5 cm^4\nIyy=40.8 cm^4\nA=14.6 cm^2",
-//   "ISNT 150\n h=150 mm,b=150 mm\n t1=10 mm,t2=10 mm\nIxx=541.1 cm^4\nIyy=250.3 cm^4\nA=28.88 cm^2",
-//   "ISMC 100\n h=100 mm,b=50 mm\n t1=4.7 mm,t2=7.5 mm\nIxx=186.7 cm^4\nIyy=25.9 cm^4\nA=11.7 cm^2",
-//   "ISA 100100\n h=100 mm,b=100 mm\n t=12 mm\nIxx=207 cm^4\nIyy=207 cm^4\nA=22.59 cm^2",
-//   "SQUARE\n h=150 mm,b=150 mm\n Ixx=4218.75 cm^4\nIyy=4218.75 cm^4\nA=225 cm^2",
-//   "CIRCLE\n D=150 mm\n Ixx=2485.05 cm^4\nIyy=2485.05 cm^4\nA=176.72 cm^2",
-// ];
+var beaminf = [
+  "ISMB 100\n h=100 mm,b=75 mm\n t1=4 mm,t2=7 mm\nIxx=257.5 cm^4\nIyy=40.8 cm^4\nA=14.6 cm^2",
+  "ISNT 150\n h=150 mm,b=150 mm\n t1=10 mm,t2=10 mm\nIxx=541.1 cm^4\nIyy=250.3 cm^4\nA=28.88 cm^2",
+  "ISMC 100\n h=100 mm,b=50 mm\n t1=4.7 mm,t2=7.5 mm\nIxx=186.7 cm^4\nIyy=25.9 cm^4\nA=11.7 cm^2",
+  "ISA 100100\n h=100 mm,b=100 mm\n t=12 mm\nIxx=207 cm^4\nIyy=207 cm^4\nA=22.59 cm^2",
+  "SQUARE\n h=150 mm,b=150 mm\n Ixx=4218.75 cm^4\nIyy=4218.75 cm^4\nA=225 cm^2",
+  "CIRCLE\n D=150 mm\n Ixx=2485.05 cm^4\nIyy=2485.05 cm^4\nA=176.72 cm^2",
+];
 
 // simulation variables
 let time = 0; //keeps track of the time of the animation
@@ -146,9 +146,9 @@ function varupdate() {
   document.getElementById("secname").innerHTML = secname;
   document.getElementById("lengthtxt").innerHTML = beamlength;
 
-  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n kg  c = ${c.toFixed(
+  cirTooltip.innerHTML = `M = ${m.toFixed(4)} \n  kg <br>  c = ${c.toFixed(
     4
-  )}Ns/m \n k = ${(k / 1000).toFixed(4)}N/mm
+  )}Ns/m \n <br> k = ${(k / 1000).toFixed(4)}N/mm
   `;
 
   cirTooltip1.innerHTML =
@@ -267,32 +267,33 @@ function generateGraph(x, y) {
 
   graphctx1.font = "2rem Comic sans MS";
   graphctx1.save();
-  graphctx1.translate(0, 225);
+  graphctx1.translate(0, 125);
   graphctx1.rotate(-Math.PI / 2);
-  graphctx1.fillText("Displacement", 0, 15);
+  graphctx1.fillText("Displacement", -60, 15);
   graphctx1.restore();
-  graphctx1.fillText("Time", 150, 350);
+  graphctx1.fillText("Time", 150, 250);
   graphctx1.beginPath();
 
-  graphctx1.moveTo(20, 100);
-  graphctx1.lineTo(20, 350);
-  graphctx1.moveTo(20, 225);
-  graphctx1.lineTo(graphCanvas1.width, 225);
-  graphctx1.moveTo(20, 350);
-  graphctx1.lineTo(graphCanvas1.width, 350);
-
+  graphctx1.moveTo(20, 20);
+  graphctx1.lineTo(20, 250);
+  graphctx1.moveTo(20, 125);
+  graphctx1.lineTo(graphCanvas1.width, 125);
   graphctx1.strokeStyle = "black";
+  // graphctx1.moveTo(20, 350);
+  // graphctx1.lineTo(graphCanvas1.width, 350);
+
+  // graphctx1.strokeStyle = "black";
   graphctx1.stroke();
   graphctx1.closePath();
 
   graphctx1.beginPath();
-  graphctx1.moveTo(20, 225);
+  graphctx1.moveTo(20, 125);
   let i = 0;
   graphctx1.strokeStyle = "green";
   graphctx1.lineWidth = 1;
   while (i < graphCanvas1.width) {
-    graphctx1.lineTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
-    graphctx1.moveTo(i + 20, 225 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.lineTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.moveTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
     i += 0.01;
   }
   graphctx1.stroke();
@@ -303,10 +304,12 @@ function generateGraph(x, y) {
   graphctx1.font = "16px Comic Sans MS";
   let dispstr = "Displacement: " + (dispdisp / 5).toFixed(2) + " mm";
 
+
+
   let timestr = "Time: " + (disptime * 1000).toFixed(2) + " ms";
 
-  graphctx1.fillText(dispstr, 10, 370);
-  graphctx1.fillText(timestr, 240, 370);
+  graphctx1.fillText(dispstr, 5, 280);
+  graphctx1.fillText(timestr, 200, 280);
   ///////////////////////////////////////////////////
   // graphctx1.beginPath();
   // graphctx1.strokeStyle = "red";
@@ -323,17 +326,17 @@ function generateGraph(x, y) {
   graphctx2.font = "2rem Comic sans MS";
   graphctx2.beginPath();
   graphctx2.strokeStyle = "black";
-  graphctx2.moveTo(20, 330);
-  graphctx2.lineTo(20, 135);
-  graphctx2.moveTo(20, 330);
-  graphctx2.lineTo(520, 330);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(20, 35);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(520, 230);
   graphctx2.stroke();
   graphctx2.save();
   graphctx2.translate(10, 345);
   graphctx2.rotate(-Math.PI / 2);
-  graphctx2.fillText("Amplitude", 45, 5);
+  graphctx2.fillText("Amplitude", 170, 5);
   graphctx2.restore();
-  graphctx2.fillText("Frequency(rad/s)", 170, 350);
+  graphctx2.fillText("Frequency(rad/s)", 10, 280);
   graphctx2.strokeStyle = "#800080";
   graphctx2.lineWidth = 1;
   graphctx2.moveTo(350, 345);
@@ -343,18 +346,18 @@ function generateGraph(x, y) {
   let j = 0;
   graphctx2.beginPath();
   while (j < 300) {
-    graphctx2.lineTo(j + 50, 325 - 0.9 * amplitude(0.01 * j));
-    graphctx2.moveTo(j + 50, 325 - 0.9 * amplitude(0.01 * j));
+    graphctx2.lineTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
+    graphctx2.moveTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
     j += 0.01;
   }
   graphctx2.stroke();
   graphctx2.beginPath();
   graphctx2.strokeStyle = "green";
-  graphctx2.moveTo(150, 360);
-  graphctx2.lineTo(150, 100);
+  graphctx2.moveTo(150, 260);
+  graphctx2.lineTo(150, 45);
   graphctx2.stroke();
   graphctx2.font = "2rem Comic sans MS";
-  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 260, 300);
+  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 100, 40);
 
   graphctx1.beginPath();
   graphctx1.strokeStyle = "black";
@@ -438,6 +441,8 @@ checkintInput.addEventListener("keypress", function (event) {
     checkans();
   }
 });
+
+
 
 // Function to check the answer
 function checkans() {

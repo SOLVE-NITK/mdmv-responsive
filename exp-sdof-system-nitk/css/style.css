@@ -11,6 +11,11 @@
     padding: 0.5rem 0.5rem;
   }
 
+  .graphDisabled{
+    opacity: 0.5; 
+    pointer-events: none; 	  
+  }
+
   .title-div {
     display: flex;
     gap: 5rem;
@@ -378,6 +383,7 @@
     flex-direction: column;
     gap: 2rem;
   }
+ 
 
   .settings-sections {
     display: flex;
@@ -399,6 +405,11 @@
     row-gap: 1rem;
   }
 
+  .variables-sections{
+    position: relative;
+    left: 23px;
+  }
+
   .var-div {
     display: grid;
     grid-template-columns: 80fr 20fr;
@@ -418,8 +429,8 @@
 
   #titleincanvas {
     position: relative;
-    left: -180px;
-    top: -40px;
+    left: -160px;
+    top: -48px;
     text-align: center;
     font-size: 20px;
     font-family: "Nunito";
@@ -533,16 +544,16 @@
 
   #simscreen {
     position: relative;
-    right: 60px;
-    top: -10px;
+    right: 40px;
+    top: -19px;
   
   }
 
-  .varname {
+  /* .varname {
     position: relative;
     left: 10px;
     top: 10px;
-  }
+  } */
 
   .varnamedamp {
     margin-left: 10px;

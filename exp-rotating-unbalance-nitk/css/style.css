@@ -385,7 +385,7 @@ h1 {
   left: 50rem;
   top: 6rem;
   /* width: 10%; */
-  padding: 0.5rem;
+  padding: 0.1rem;
   visibility: hidden;
   cursor: pointer;
   z-index: 10;

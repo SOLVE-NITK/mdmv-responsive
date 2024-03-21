@@ -10,6 +10,41 @@ em:current font size
 /* **************************** */
 
 @media (max-width: 84em) {
+  
+  body {
+    width: 100%;
+    margin: unset;
+  }
+  .title-div h1 {
+    font-size: 2.5rem;
+  }
+  .task-title {
+    font-size: 2rem;
+  }
+  .tool-menu {
+    font-size: 2rem;
+  }
+  .icons {
+    width: 4rem;
+    height: 4rem;
+  }
+  .ctrl-icons {
+    width: 3rem;
+    height: 3rem;
+  }
+  .canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+  }
+  .div__control img {
+    width: 3rem;
+    height: 2.8rem;
+  }
+  #variables {
+    width: 100%;
+  }
 }
 
 /* **************************** */

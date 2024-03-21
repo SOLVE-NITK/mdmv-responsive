@@ -57,6 +57,10 @@ em:current font size
     height: 20px;
     cursor: pointer;
   }
+  .variables-sections{
+    position: relative;
+    left: 72px;
+  }
 
 
 
@@ -234,6 +238,11 @@ em:current font size
   .unitFreq{
     /* margin-left: 0px; */
   }
+  .variables-sections{
+    position: relative;
+    left: -44px;
+   
+  }
  
 
 }
@@ -305,6 +314,11 @@ em:current font size
     width: 80px;
     height: 20px;
     cursor: pointer;
+  }
+  .variables-sections{
+    position: relative;
+    left: -2px;
+    
   }
 
 
@@ -387,9 +401,10 @@ em:current font size
 
   #titleincanvas {
     position: relative;
-    top: -60px;
-    left: -75px;
+    top: -70px;
+    left: -79px;
     font-size: 17px;
+   
   }
 
   canvas#storegraph {
@@ -417,10 +432,10 @@ em:current font size
     cursor: pointer;
   }
 
-  
-
-
-
+  .variables-sections{
+    position: relative;
+    left: -4px;
+  }
 
 
 }
@@ -532,8 +547,8 @@ em:current font size
 
   #titleincanvas {
     position: relative;
-    top: -60px;
-    left: -78px;
+    top: -72px;
+    left: -85px;
     font-size: 13px;
   }
 
@@ -575,6 +590,11 @@ em:current font size
 
   label {
     font-size: 1.5rem;
+  }
+  .variables-sections{
+    position: relative;
+    left: -1px;
+   
   }
 
 
@@ -625,44 +645,26 @@ em:current font size
 
 }
 
-/* @media (max-width:31em) and (max-width:28em) {
-  .variable {
-    position: relative;
-    left: -35px;
-  }
-
-  .inputBox1 {
-
-    position: relative;
-    right: 0px;
-    top: -25px;
-  }
-
-  #dampslider {
-    position: relative;
-    top: -7px;
-    margin-top: 3px;
-
-  }
-
-  .main__task-div {
-    width: 98%;
-  }
-} */
-
-@media(max-width:27){
 
 
-  #dampslider {
+@media(max-width:27em){
 
-    position: relative;
-    top: -3px;
-    margin-top: 3px;
-
-  }
 
   #commentboxright {
     margin-left: 59px;
+  }
+  .variables-sections{
+    position: relative;
+    left: -4px;
+    margin-top: 2px;
+   
+   
+  }
+  #titleincanvas {
+    position: relative;
+    top: -76px;
+    left: -88px;
+    font-size: 12px;
   }
 
  
@@ -783,7 +785,7 @@ em:current font size
 
   #titleincanvas {
     position: relative;
-    top: -90px;
+    top: -97px;
     left: -75px;
     font-size: 12px;
   }
@@ -878,6 +880,11 @@ em:current font size
   #commentboxright {
     margin-left: 60px;
   }
+  .variables-sections{
+    position: relative;
+    left: 18px;
+    margin-top: 10px; 
+  }
 
 }
 
@@ -944,6 +951,12 @@ em:current font size
   #dampslider {
     margin-right: 70px;
     
+  }
+  .variables-sections{
+    position: relative;
+    left: 20px;
+    margin-top: 16px;
+   
   }
 }
 

@@ -484,7 +484,11 @@ function changescreen() {
   if (imgfilename === "graphbutton") {
     clearGraphClicked = false;
     document.getElementById("graphbutton").src = "./images/bluebkdulls.svg";
-
+    document.getElementById("graphbutton").style.display="block";
+    document.getElementById('playpausebutton').disabled=true;
+    // document.getElementById('playpausebutton').disabled=true;
+    console.log("hi")
+    // document.getElementById("playpausebutton").style.color="block";
     document.querySelector("#graphbutton + span").textContent = "Back";
 
     canvas2.style.visibility = "visible";
@@ -503,10 +507,13 @@ function changescreen() {
       ")";
     document.getElementById("clearGraph").style.visibility = "visible";
     document.getElementById("titleincanvas").style.visibility = "hidden";
+    document.getElementById("playpausebutton").classList.toggle("graphDisabled");
+    // document.getElementById("playpausebutton").style.display = "none";
+    // document.querySelector(".playPause").style.display="none";
     requestAnimationFrame(graphanimate);
 
-    document.getElementById("playpausebutton").style.visibility = "hidden";
-    document.querySelector(".playPause").style.display = "none";
+    // document.getElementById("playpausebutton").style.visibility = "hidden";
+  
     $("#massspinner").spinner("disable");
     $("#massslider").slider("disable");
     $("#stiffspinner").spinner("disable");
@@ -515,6 +522,8 @@ function changescreen() {
     $("#dampslider").slider("disable");
     $("#forcespinner").spinner("disable");
     $("#frequencyspinner").spinner("disable");
+
+
   } else {
     // If the condition is true, you can set the text back to "Graph" (optional)
     document.querySelector("#graphbutton + span").textContent = "Graph";
@@ -522,9 +531,16 @@ function changescreen() {
   if (imgfilename === "bluebkdulls") {
     document.getElementById("graphbutton").src = "./images/graphbutton.svg";
     cancelAnimationFrame(graphid);
-    document.getElementById("playpausebutton").style.visibility = "visible";
+
+    document.getElementById("playpausebutton").classList.toggle("graphDisabled");
+    // document.getElementById('playpausebutton').disabled="false";
+    // document.querySelector(".playPause").style.display = "block";
+    // document.getElementById("playpausebutton").style.visibility = "visible";
+ 
+
     document.getElementById("clearGraph").style.visibility = "hidden";
-    document.querySelector(".playPause").style.display = "block";
+    document.getElementById("playpausebutton").style.display = "block";
+    document.querySelector(".playPause").style.display="block";
     startsim();
   }
 }

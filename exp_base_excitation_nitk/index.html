@@ -189,7 +189,7 @@ jquery.ui.touch-punch.min.js"
             <span>Variables</span>
           </li>
           <li class="tool-list">
-            <a href="#comments" class="tool-link" title="Comments"
+            <a href="#comments" class="tool-link" title="Results"
             ontouchstart="window.location.href = '#comments';"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -216,6 +216,7 @@ jquery.ui.touch-punch.min.js"
               src="images/bluepausedull.svg"
               alt=""
               class="icons"
+              title="play/Pause"
             />
             <span class="playPause">Pause</span>
           </li>
@@ -227,6 +228,7 @@ jquery.ui.touch-punch.min.js"
               src="images/graphbutton.svg"
               alt=""
               class="icons graph graph-zero"
+              title="Graph"
             />
             <span class="">Graph</span>
           </li>
@@ -283,6 +285,7 @@ jquery.ui.touch-punch.min.js"
                       class="var-spinner"
                       id="stiffnessSpinner"
                       name="value"
+                      ontouchstart="varchange()"
                     
                     />
                     <span>N/m</span>
@@ -293,7 +296,7 @@ jquery.ui.touch-punch.min.js"
                   <div class="input-container">
                     <label for="massSpinner">Mass</label>
                     <input class="var-spinner" id="massSpinner" name="value" />
-                    <span>k/g</span>
+                    <span>kg</span>
                   </div>
                   <div class="var-slider" id="massSlider"></div>
                 </div>
