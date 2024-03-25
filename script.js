@@ -25,7 +25,7 @@ const data = [
   },
   {
     title: "Forced vibration of SDOF system",
-    path: "exp_sdof_system_nitk",
+    path: "exp-sdof-system-nitk",
   },
   {
     title: "Base Excitation",
