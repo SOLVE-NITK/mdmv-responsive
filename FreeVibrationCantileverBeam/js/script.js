@@ -517,7 +517,7 @@ const selectSection = function () {
   } else {
     otherSec.classList.add("display-flex");
     otherSec.classList.remove("display-hide");
-    sectionImg.src = "images/crossOth.PNG";
+    sectionImg.src = "images/crossOth.png";
     A = 0.01;
     I = 0.01;
     sectionTooltip.innerHTML = "";
@@ -557,3 +557,7 @@ const selectMaterial = function () {
   varupdate();
 };
 materials.addEventListener("change", selectMaterial);
+function validateNumber(input) {
+  // Replace non-numeric characters with empty string
+  input.value = input.value.replace(/[^0-9]/g, '');
+}

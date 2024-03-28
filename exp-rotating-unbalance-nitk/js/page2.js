@@ -37,7 +37,7 @@ function runPage2() {
     z = $("#dampingSpinner").spinner("value");
     y = $("#magnitudeSpinner").spinner("value");
     w = $("#frequencySpinner").spinner("value");
-    position_graph.update(spring1.y);
+    // position_graph.update(spring1.y);
 //   position_graph.draw(0, 0, 255);
   document.querySelector("#mass").textContent =
   spring1.wn.toFixed(4) + " rad/s"; //Displaying values

@@ -39,9 +39,8 @@ em:current font size
     width: 3rem;
     height: 3rem;
   }
-
   .tool-list span {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
   .canvas {
     display: block;
@@ -109,7 +108,7 @@ em:current font size
     height: 3rem;
   }
   .tool-list span {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
   .main__task-div:nth-child(4) {
     margin-bottom: 6rem;
@@ -194,6 +193,9 @@ em:current font size
     border: none;
     border-top: 1px solid rgba(177, 176, 176, 0.855);
   }
+  .tool-list span {
+    font-size: 1.6rem;
+  }
 }
 
 /* **************************** */
@@ -228,7 +230,7 @@ em:current font size
     gap: 1.5rem;
   }
   .tool-list span {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
   .task-title {
     font-size: 1.7rem;

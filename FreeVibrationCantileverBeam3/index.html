@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLVE</title>
+    <title>SOLVE-MDMV-Single Degree of Freedom System</title>
     
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,11 +160,11 @@
                 <div class="other-sec display-hide">
                   <div>
                     <label for="CsArea">C/s Area(m^2)</label>
-                    <input class="var-spinner" id="CsArea" name="value" />
+                    <input type="number" class="var-spinner" id="CsArea" name="value" oninput="validateNumber(this)"/>
                   </div>
                   <div>
                     <label for="Ivalue">Ixx(m^4) </label>
-                    <input class="var-spinner" id="Ivalue" name="value" />
+                    <input type="number" class="var-spinner" id="Ivalue" name="value" oninput="validateNumber(this)"/>
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@
                  <P>Find natural frequency &#969;n(rad/s) from &#969;d(ζ)</P>
 
                   <div id="checkDiv">
-                    <input id="checkint" type="number"  >   
+                    <input id="checkint" type="number"  oninput="validateNumber(this)">   
                     <span id="checksapn" style="position:relative;left: 10%;"></span>   
                   </div>
             

@@ -35,7 +35,6 @@ function graphanimate() {
   plotgraph();
 }
 
-
 //start of simulation here; starts the timer with increments of 0.01 seconds
 function startsim() {
   let canvas1 = document.getElementById("simscreen");
@@ -484,11 +483,9 @@ function changescreen() {
   if (imgfilename === "graphbutton") {
     clearGraphClicked = false;
     document.getElementById("graphbutton").src = "./images/bluebkdulls.svg";
-    document.getElementById("graphbutton").style.display="block";
-    document.getElementById('playpausebutton').disabled=true;
-    // document.getElementById('playpausebutton').disabled=true;
-    console.log("hi")
-    // document.getElementById("playpausebutton").style.color="block";
+    document.getElementById("graphbutton").style.display = "block";
+    document.getElementById("playpausebutton").disabled = true;
+
     document.querySelector("#graphbutton + span").textContent = "Back";
 
     canvas2.style.visibility = "visible";
@@ -507,13 +504,15 @@ function changescreen() {
       ")";
     document.getElementById("clearGraph").style.visibility = "visible";
     document.getElementById("titleincanvas").style.visibility = "hidden";
-    document.getElementById("playpausebutton").classList.toggle("graphDisabled");
+    document
+      .getElementById("playpausebutton")
+      .classList.toggle("graphDisabled");
     // document.getElementById("playpausebutton").style.display = "none";
     // document.querySelector(".playPause").style.display="none";
     requestAnimationFrame(graphanimate);
 
     // document.getElementById("playpausebutton").style.visibility = "hidden";
-  
+
     $("#massspinner").spinner("disable");
     $("#massslider").slider("disable");
     $("#stiffspinner").spinner("disable");
@@ -522,8 +521,6 @@ function changescreen() {
     $("#dampslider").slider("disable");
     $("#forcespinner").spinner("disable");
     $("#frequencyspinner").spinner("disable");
-
-
   } else {
     // If the condition is true, you can set the text back to "Graph" (optional)
     document.querySelector("#graphbutton + span").textContent = "Graph";
@@ -532,15 +529,16 @@ function changescreen() {
     document.getElementById("graphbutton").src = "./images/graphbutton.svg";
     cancelAnimationFrame(graphid);
 
-    document.getElementById("playpausebutton").classList.toggle("graphDisabled");
+    document
+      .getElementById("playpausebutton")
+      .classList.toggle("graphDisabled");
     // document.getElementById('playpausebutton').disabled="false";
     // document.querySelector(".playPause").style.display = "block";
     // document.getElementById("playpausebutton").style.visibility = "visible";
- 
 
     document.getElementById("clearGraph").style.visibility = "hidden";
     document.getElementById("playpausebutton").style.display = "block";
-    document.querySelector(".playPause").style.display="block";
+    document.querySelector(".playPause").style.display = "block";
     startsim();
   }
 }
@@ -549,3 +547,14 @@ function cleargraph() {
   let ctx = document.getElementById("storegraph").getContext("2d");
   ctx.clearRect(0, 0, 550, 440);
 }
+
+// Get all input elements
+const inputs = document.querySelectorAll('input[type="number"]');
+
+// Add event listener to each input element
+inputs.forEach((input) => {
+  input.addEventListener("input", function () {
+    // Remove non-numeric characters
+    this.value = this.value.replace(/[^0-9.]/g, "");
+  });
+});

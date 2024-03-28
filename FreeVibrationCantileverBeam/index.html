@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLVE-</title>
+    <title>SOLVE-MDMV-Single Degree of Freedom System</title>
    
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,11 +145,11 @@
                 <div class="other-sec display-hide">
                   <div>
                     <label for="CsArea">C/s Area(m^2)</label>
-                    <input class="var-spinner" id="CsArea" name="value" />
+                    <input class="var-spinner" id="CsArea" name="value" oninput="validateNumber(this)"/>
                   </div>
                   <div>
                     <label for="Ivalue">Ixx(m^4) </label>
-                    <input class="var-spinner" id="Ivalue" name="value" />
+                    <input class="var-spinner" id="Ivalue" name="value"oninput="validateNumber(this)" />
                   </div>
                 </div>
               </div>
@@ -208,21 +208,21 @@
                
                 <label for="lengthSpinner"><span class="text3"> Length</span> <span class="lengthspin">mm</span></label>
                 <span class="inputbox">
-                <input class="var-spinner" id="lengthSpinner" name="value" />
+                <input class="var-spinner" id="lengthSpinner" name="value" oninput="validateNumber(this)"/>
               </span>
                 <div class="var-slider" id="lengthSlider"></div>
               </div>
               <div class="var-div var-divDamp">
                 <label for="dampSpinner"><span class="text4">Damping Ratio</span></label>
                 <span class="inputbox">
-                <input class="var-spinner" id="dampSpinner" name="value" />
+                <input class="var-spinner" id="dampSpinner" name="value" oninput="validateNumber(this)"/>
                 </span>
                 <div class="var-slider" id="dampSlider"></div>
               </div>
               <div class="var-div ">
                 <label for="massSpinner"><span class="text5">Centre Mass</span><span class="massspin">kg</span></label>
                 <span class="inputbox">
-                <input class="var-spinner" id="massSpinner" name="value" />
+                <input class="var-spinner" id="massSpinner" name="value" oninput="validateNumber(this)" />
               </span>
                 <div class="var-slider" id="massSlider"></div>
               </div>

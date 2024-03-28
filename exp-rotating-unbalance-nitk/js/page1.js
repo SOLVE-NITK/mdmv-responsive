@@ -42,8 +42,8 @@ function runPage1() {
   spring1.initialise(k, m, z, y, w);
   spring1.update(t, factor);
   spring1.show(0, 0, 0);
-  // spring1.update(t, factor);
-  // spring1.show(0, 0, 0);
+  spring1.update(t, factor);
+  spring1.show(0, 0, 0);
 
   position_graph.update(spring1.y);
   position_graph.draw(0, 0, 255);

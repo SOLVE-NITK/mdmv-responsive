@@ -22,7 +22,7 @@ let endmass = 25;
 let m = (33 / 140) * massbeam + endmass;
 let k = (3 * E * I) / Math.pow(beamlength / 1000, 3); //Stiffness value for a cantilever beam
 let wn = Math.sqrt(k / m); //Natural Frequency
-console.log(wn);
+// console.log(wn);
 let wd = wn * Math.sqrt(1 - dampingratio * dampingratio); //Damped natural frequency
 let initdisp = 500; //Initial displacement given to the beam
 let simstatus;
@@ -74,7 +74,7 @@ const actdisplace = function (t) {
 var disptime = 0;
 var dispdisp = actdisplace(disptime);
 var xaxis;
-console.log(dispdisp);
+// console.log(dispdisp);
 
 //start of simulation here; starts the timer with increments of 0.01 seconds
 function startsim() {
@@ -304,8 +304,6 @@ function generateGraph(x, y) {
   graphctx1.font = "16px Comic Sans MS";
   let dispstr = "Displacement: " + (dispdisp / 5).toFixed(2) + " mm";
 
-
-
   let timestr = "Time: " + (disptime * 1000).toFixed(2) + " ms";
 
   graphctx1.fillText(dispstr, 5, 280);
@@ -441,8 +439,6 @@ checkintInput.addEventListener("keypress", function (event) {
     checkans();
   }
 });
-
-
 
 // Function to check the answer
 function checkans() {

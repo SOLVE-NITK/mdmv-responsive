@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOLVE - Machine Dynamics and Mechanical Vibrations Lab - Forced vibration of SDOF system</title>
+  <title>SOLVE-MDMV-Forced vibration of SDOF system</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
           <span>Results</span>
         </li>
         <li class="tool-list" >
-          <img id="playpausebutton"  onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" />
+          <img id="playpausebutton" title="Play/Pause"  onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" />
           <span class="playPause">Pause</span>
         </li>
         <li class="tool-list" title="Graph">
@@ -128,7 +128,7 @@
                    
                     <span class="inputBox inputBoxstiff">
                       <span class="in">
-                      <input id="stiffspinner" />
+                      <input id="stiffspinner" type="number"/>
                     </span>
                     </span>
                  
@@ -138,7 +138,7 @@
                   <div class="varname">
                     <p title="Mass" ><span class="text1">Mass</span> <span class="unit2">kg</span></p>
                     <span class="inputBox">
-                      <input id="massspinner" />
+                      <input id="massspinner" type="number"/>
                     </span>
 
                   </div>
@@ -146,20 +146,20 @@
                   <div class="varname">
                     <p title="Damping Ratio" ><span class="damp"><span class="text2">Damping Ratio</span></span></p>
                     <span class="inputBox inputBox1">
-                      <input id="dampspinner" />
+                      <input id="dampspinner" type="number" />
                     </span>
                   </div>
                   <div id="dampslider"></div>
                   <div class="varname">
                     <p title="Force Amp"><span class="text3">Force Amp</span> <span class="unit3">N</span></p>
                     <span class="inputBox">
-                      <input id="forcespinner" />
+                      <input id="forcespinner" type="number" />
                     </span>
                   </div>
 
                   <div class="varname">
                     <p title="Force Freq"><span class="text4">Forcing Freq </span><span class="inputBoxFreq"><input
-                          id="frequencyspinner" /></span><br><span class="unitFreq">rad/s</span></p>
+                          id="frequencyspinner" type="number" /></span><br><span class="unitFreq">rad/s</span></p>
                   </div>
                 </div>
               </div>

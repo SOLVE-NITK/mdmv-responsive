@@ -5,10 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOLVE-Machine Dynamics and Mechanical Vibrations Lab-Free vibration of cantilever beam</title>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> -->
+  <title>SOLVE-MDMV-Free vibration of cantilever beam</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -77,10 +75,10 @@
           <span>Results</span>
         </li>
         <li class="tool-list">
-          <img id="playpausebutton" onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" />
+          <img id="playpausebutton" title="Play/Pause" onclick="simstate()" src="images/bluepausedull.svg" alt="" class="icons" />
           <span class="playPause">Pause</span>
         </li>
-        <li class="tool-list">
+        <li class="tool-list" title="Graph">
           <img id="graphbutton" onclick="plotgraph();toggleImg()" src="./images/graphbutton.svg" alt="" class="icons" />
           <span>Graph</span>
         </li>
@@ -97,7 +95,7 @@
     <div class="main">
       <div class="main-section">
         <div id="simulation" class="main__task-div">
-        
+
           <h3 class="task-title">Simulation</h3>
           <div class="canvas__div">
             <div class="img-div">
@@ -107,10 +105,6 @@
               </div>
               <div class="cross-img">
                 <img src="images/crossI.PNG" id="cross" style="display:block" alt="cross section" />
-                <!-- <span class="tooltip sec-tooltip">
-                    ISMB: 100, h: 100mm, b: 75mm, t1: 4mm, t2: 7mm, Ixx: 257.5 cm<sup>4</sup>, Iyy: 40.8 cm<sup>4</sup>,
-    Area: 14.6 cm<sup>2</sup>,
-                  </span> -->
                 <img src="images\beam.PNG" id="beam" alt="" style="display:none;">
               </div>
               <div class="other-sec display-hide">
@@ -127,7 +121,7 @@
             <div id="canvas-container" class="canvas__container">
               <canvas id="canvas" class="canvas"></canvas>
 
-              <!-- <canvas id="canvas1" class="canvas"></canvas> -->
+       
             </div>
             <div class="graph-div display-hide">
 
@@ -135,15 +129,9 @@
 
               <p class="cir-tooltip1"> </p>
 
-              <!-- <img
-                      src="./images/slidergraph.PNG"               
-                       id="slidergraph"
-                
-                        /> -->
-              <!-- <div id="constraintbox" ></div> -->
+        
               <div id="tooltip" style="visibility: hidden;"></div>
-              <!-- <img id="sliderGraph" src="images/slidergraph.PNG" alt="Slider"/> -->
-              <!-- <div  class="constarint">hiiii</div> -->
+         
 
 
             </div>
@@ -199,7 +187,7 @@
               <P>Find damping ratio(ζ) from logarthmic decrement(δ)</P>
 
               <div id="checkDiv">
-                <input id="checkint" type="number">
+                <input id="checkint"  type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                 <span id="checksapn" style="position:relative;left: 10%;"></span>
               </div>
 

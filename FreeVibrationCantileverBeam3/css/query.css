@@ -9,8 +9,12 @@ em:current font size
 /* Below 1344px (Smaller Desktops) */
 /* **************************** */
 
-@media (max-width: 84em) {
-  
+@media (min-width: 75em) {
+  .cir-tooltip1
+  {
+    position:relative;
+    top: -32rem;
+  }
 }
 /* **************************** */
 /* Below 1200px (Lanscape Tablets) */
